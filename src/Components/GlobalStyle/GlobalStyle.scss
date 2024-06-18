@@ -3,7 +3,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
-    --primary: #fff;
+    --primary-color: #fe2c55;
+    --black-icon: rgba(22, 24, 35, 0.34);
+    --input-placeholdel: #242634;
 }
 
 * {
@@ -20,4 +22,27 @@ body {
     font-size: 1.6rem;
     font-family: "Poppins", sans-serif;
     text-rendering: optimizeSpeed;
+}
+
+.container {
+    padding: 16px;
+}
+
+input,
+button,
+textarea {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+    font-size: inherit;
+}
+
+input::placeholder {
+    color: var(--input-placeholdel);
+}
+
+.icon {
+    color: var(--black-icon);
+    cursor: pointer;
 }

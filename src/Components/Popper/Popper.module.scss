@@ -1,0 +1,17 @@
+.wrapper {
+    width: 100%;
+    background: rgb(255, 255, 255);
+    min-height: 100px;
+    border-radius: 8px;
+    padding-top: 8px;
+    top: calc(100% + 12px);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+}
+
+.wrapper-search {
+    max-height: min(-156px + 100vh, 760px);
+}

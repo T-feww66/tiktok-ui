@@ -1,11 +1,11 @@
-import Header from "./Header";
+import Header from "@/Layouts/components/Header";
 import SideBar from "./SideBar.js";
 
 function DefaultLayout({ children }) {
     return (
-        <div>
+        <div className="container">
             <Header />
-            <div className="container">
+            <div>
                 <SideBar />
                 <div className="content">{children}</div>
             </div>
