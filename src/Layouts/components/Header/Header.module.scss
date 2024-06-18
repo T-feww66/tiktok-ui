@@ -76,7 +76,7 @@
     margin-left: 16px;
 
     width: 52px;
-    height: var(--search-height);
+    height: calc(var(--search-height) - 4px);
     border-top-right-radius: var(--search-border-radius);
     border-bottom-right-radius: var(--search-border-radius);
     color: var(--black-icon);
@@ -100,4 +100,11 @@
         height: 30px;
         background-color: var(--black-icon);
     }
+}
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
 }

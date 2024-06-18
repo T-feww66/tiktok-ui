@@ -4,7 +4,9 @@ import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCircleXmark,
+    faDownload,
     faMagnifyingGlass,
+    faSignIn,
     faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -16,6 +18,7 @@ import styles from "./Header.module.scss";
 import images from "@/assests/images";
 import { Wrapper as PopperWrapper } from "@/Components/Popper";
 import AccountItem from "@/Components/AccountItem";
+import Button from "@/Components/Button";
 
 const cx = classNames.bind(styles);
 function Header() {
@@ -23,7 +26,7 @@ function Header() {
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1, 2, 3]);
+            setSearchResult([]);
         }, 0);
     }, []);
     return (
@@ -48,10 +51,10 @@ function Header() {
                                     {" "}
                                     Account
                                 </h4>
-                                <AccountItem/>
-                                <AccountItem/>
-                                <AccountItem/>
-                                <AccountItem/>
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
                             </PopperWrapper>
                         </div>
                     )}
@@ -77,7 +80,16 @@ function Header() {
                     </div>
                 </Tippy>
 
-                <div className={cx("action")}>action</div>
+                <div className={cx("action")}>
+                    <Button
+                        leftIcon={<FontAwesomeIcon icon={faDownload} />}
+                        outline
+                        className={cx("customclassname")}
+                    >
+                        Upload
+                    </Button>
+                    <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Log In</Button>
+                </div>
             </div>
         </header>
     );
