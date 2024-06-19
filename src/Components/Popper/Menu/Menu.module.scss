@@ -1,0 +1,16 @@
+// Menu
+.menu-items {
+    width: 224px;
+    .menu-item {
+        justify-content: flex-start;
+        width: 100%;
+        border-radius: 0;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 1.4rem;
+
+        &:hover {
+            background-color: var(--hover-item);
+        }
+    }
+}
