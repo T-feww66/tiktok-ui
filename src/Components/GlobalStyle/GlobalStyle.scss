@@ -48,6 +48,10 @@ textarea {
     font-size: inherit;
 }
 
+button {
+    cursor: pointer;
+}
+
 input::placeholder {
     color: var(--input-placeholdel);
 }

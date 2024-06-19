@@ -3,6 +3,8 @@
     width: 224px;
     .menu-item {
         justify-content: flex-start;
+        padding: 10px 16px;
+
         width: 100%;
         border-radius: 0;
         background-color: transparent;
@@ -13,4 +15,24 @@
             background-color: var(--hover-item);
         }
     }
+}
+
+// header menu
+.menu__header {
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+.menu__back {
+    height: 100%;
+    width: 50px;
+}
+.menu__title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.1rem;
 }

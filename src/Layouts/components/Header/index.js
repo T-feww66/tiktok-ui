@@ -30,6 +30,19 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: "English",
+        children: {
+            title: "Language",
+            data: [
+                {
+                    title: "English",
+                    code: "en",
+                },
+                {
+                    title: "VietNam",
+                    code: "vi",
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faQuestionCircle} />,
@@ -67,6 +80,7 @@ function Header() {
                             tabIndex="-1"
                             {...attrs}
                         >
+                            {/* drop down search bar */}
                             <PopperWrapper>
                                 <h4 className={cx("search__title")}>
                                     {" "}
