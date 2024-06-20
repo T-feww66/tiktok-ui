@@ -17,9 +17,12 @@ function Menu({ children, items = [] }) {
     const renderItem = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.children;
+            const classes = cx("menu-item", {
+                separate: item.separate,
+            });
             return (
                 <MenuItem
-                    className={cx("menu-item")}
+                    className={classes}
                     key={index}
                     data={item}
                     onClick={() => {
@@ -34,7 +37,6 @@ function Menu({ children, items = [] }) {
 
     return (
         <Tippy
-            visible
             delay={[0, 500]}
             interactive
             placement={"bottom-end"}
@@ -56,6 +58,9 @@ function Menu({ children, items = [] }) {
                     </PopperWrapper>
                 </div>
             )}
+            onHide={() => {
+                setHistory((prev) => prev.slice(0, 1));
+            }}
         >
             {children}
         </Tippy>

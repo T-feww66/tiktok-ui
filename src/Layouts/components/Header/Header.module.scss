@@ -101,12 +101,27 @@
         background-color: var(--black-icon);
     }
 }
+
+// action
 .action {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
+
+    &__avatar {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+
+    }
+
+
+    &__icon {
+        font-size: 2rem;
+        display: block;
+    }
 }
 
 .menu_more {

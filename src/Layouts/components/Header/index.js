@@ -4,17 +4,23 @@ import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCircleXmark,
+    faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faKeyboard,
     faMagnifyingGlass,
     faQuestionCircle,
+    faSignOut,
     faSpinner,
+    faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-//Tippy
-import Tippy from "@tippyjs/react/headless";
+import { faMessage, faPaperPlane } from "@fortawesome/free-regular-svg-icons";
 
+//Tippy
+import HeadlessTippy from "@tippyjs/react/headless";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 import styles from "./Header.module.scss";
 
 import images from "@/assests/images";
@@ -55,6 +61,29 @@ const MENU_ITEMS = [
         title: "Keyboard shortcuts",
     },
 ];
+
+const userMenu = [
+    {
+        icon: <FontAwesomeIcon icon={faUser} />,
+        title: "Proflie",
+        to: "/profile",
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faCoins} />,
+        title: "Get Coins",
+        to: "/getCoins",
+    },
+    ...MENU_ITEMS,
+    {
+        icon: <FontAwesomeIcon icon={faSignOut} />,
+        title: "Log Out",
+        to: "/logout",
+        separate: true
+    },
+];
+
+const currentUser = true;
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
 
@@ -70,7 +99,7 @@ function Header() {
                     <img src={images.logo} alt="TikTok" />
                 </div>
 
-                <Tippy
+                <HeadlessTippy
                     interactive
                     visible={searchResult.length > 0}
                     placement={"bottom"}
@@ -113,17 +142,44 @@ function Header() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </button>
                     </div>
-                </Tippy>
+                </HeadlessTippy>
 
+                {/* acction  */}
                 <div className={cx("action")}>
                     <Button outline>Upload</Button>
-                    <Button primary>Log In</Button>
+
+                    {currentUser ? (
+                        <>
+                            <Tippy content="Send Message">
+                                <button className={cx("action__icon")}>
+                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                </button>
+                            </Tippy>
+
+                            <button className={cx("action__icon")}>
+                                <FontAwesomeIcon icon={faMessage} />
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Button outline>Upload</Button>
+                            <Button primary>Log In</Button>
+                        </>
+                    )}
 
                     {/* Menu tai day */}
-                    <Menu items={MENU_ITEMS}>
-                        <button className={cx("menu_more")}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS}>
+                        {currentUser ? (
+                            <img
+                                src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
+                                alt="F8"
+                                className={cx("action__avatar")}
+                            />
+                        ) : (
+                            <button className={cx("menu_more")}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        )}
                     </Menu>
                 </div>
             </div>
